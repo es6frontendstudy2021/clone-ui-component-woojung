@@ -1,9 +1,11 @@
-import firebase from './firebase';
+import { authService, databaseService } from './firebase';
 import './style.scss';
 
 window.onload = () => {
-  console.log(firebase);
-  // firebase.initializeApp(config);
-  // const database = firebase.database();
-  // console.log(database);
+  function addPlace({ name, address }) {
+    databaseService.ref('places/1').set({
+      name,
+      address,
+    });
+  }
 };
