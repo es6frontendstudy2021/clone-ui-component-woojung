@@ -2,6 +2,28 @@
 
 Would you like to visit here?
 
+## Technical Stacks
+
+- ES6+, webpack5
+- naver map
+- firebase
+
+## Getting Started
+
+1.
+
+```
+  $ yarn install
+```
+
+2. set **.env** file
+
+3.
+
+```
+  $ yarn start
+```
+
 ### **Prettier auto formatting**
 
 1. Install the Prettier VS Code plugin
@@ -10,4 +32,4 @@ Would you like to visit here?
 3. Automatically run Pretteir when saving a file
    - settings through the command Palette, "editor.formatOnSave": true
 
-[https://www.codereadability.com/automated-code-formatting-with-prettier/](https://www.codereadability.com/automated-code-formatting-with-prettier/)
+[Reference(Prettier)](https://www.codereadability.com/automated-code-formatting-with-prettier/)
