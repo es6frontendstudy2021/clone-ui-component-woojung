@@ -25,6 +25,14 @@ const getButtonTheme = (...args) => {
   return buttonThemes.join('-');
 };
 
+const randomID = () => {
+  let randomID = Math.floor(Math.random() * 1000000) + 100000;
+  if (randomID > 1000000) {
+    randomID = randomID - 100000;
+  }
+
+  return randomID;
+}
 const Button = ({
   id,
   className,
@@ -34,9 +42,10 @@ const Button = ({
   borderType = BUTTON_BORDER_TYPE.SOLID,
   onClick,
 } = {}) => {
-  const dataId = new Date().getTime();
+  const dataId = randomID();
+
   setEventListener({ dataId, onClick });
-  const buttonTheme = getButtonTheme(color, borderType);
+  const buttonTheme = getButtonTheme(borderType, color);
   return `
     <button
       data-id=${dataId}
