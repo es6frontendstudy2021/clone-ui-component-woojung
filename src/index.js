@@ -1,7 +1,5 @@
 import { authService, databaseService } from './firebase';
 import Header from './components/Header';
-import Button from './components/Button';
-import Modal from './components/Modal';
 import './style.scss';
 
 let map = null;
@@ -10,7 +8,6 @@ window.onload = () => {
   const $root = document.querySelector('#root');
   $root.innerHTML = `
     ${Header({ className: 'header' })}
-    ${Modal({ id: 'modal' })}
   `;
 
   function addPlace({ name, address }) {
