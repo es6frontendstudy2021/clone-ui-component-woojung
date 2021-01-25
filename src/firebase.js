@@ -11,9 +11,13 @@ import 'firebase/database';
 
 const config = {
   apiKey: process.env.FIREBASE_API_KEY,
-  authDomain: process.env.FIREBASE_AUTH_MODMAIN,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
   databaseURL: process.env.FIREBASE_DATABASE_URL,
+  projectId: process.env.PROJECTID,
   storageBucket: process.env.STORAGE_BUCKET,
+  messagingSenderId: process.env.MESSAGINGSENDERID,
+  appId: process.env.APPID,
+  measurementId: process.env.MEASUREMENTID
 };
 
 export default firebase.initializeApp(config);
