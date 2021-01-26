@@ -25,3 +25,18 @@ header {
     margin: 0 4px;
   }
 }
+
+.content {
+  margin: 0 32px;
+}
+
+.menu {
+  flex: 1 1 300px;
+  width: 100px;
+  margin: 0 14px;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
