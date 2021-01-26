@@ -1,10 +1,16 @@
-export const setEventListener = ({ dataId, onClick }) => {
+export const onRender = (callback) => {
   (async () => {
     await new Promise((resolve) => resolve());
+    callback();
+  })();
+}
+
+export const setEventListener = ({ dataId, onClick }) => {
+  onRender(() => {
     document.querySelector(`[data-id="${dataId}"]`).onclick = (event) => {
       onClick(event);
     };
-  })();
+  })
 };
 
 export const showModal = ({ target: $target, modalSelector }) => {
