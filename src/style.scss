@@ -30,10 +30,13 @@ header {
   margin: 0 32px;
 }
 
-.menu {
+.group-list {
   flex: 1 1 300px;
-  width: 100px;
-  margin: 0 14px;
+  margin-left: 12px;
+}
+
+.right {
+  margin-left: auto;
 }
 
 .flex-row {

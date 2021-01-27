@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Map from './components/Map';
 import './style.scss';
 import Card from './components/Card';
+import GroupList from './components/GroupList';
 
 let map = null;
 
@@ -17,7 +18,7 @@ window.onload = () => {
     <div class="content">
       <div class="flex-row">
         ${Map({ width: '70%', height: '80vh' })}
-        ${Card({ title: '장소'})}
+        ${GroupList()}
       </div>
     </div>
   `;
