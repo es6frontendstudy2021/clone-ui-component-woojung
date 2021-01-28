@@ -7,13 +7,8 @@
   .card-title {
     margin-bottom: 0;
   }
-  .add-group-button {
-    border: none;
-    background-color: rgba(0, 0, 0, 0);
-  }
-  .add-group-button:hover {
-    cursor: pointer;
-    opacity: 0.8;
+  .add-group-button:focus {
+    box-shadow: none;
   }
   .card-body {
 

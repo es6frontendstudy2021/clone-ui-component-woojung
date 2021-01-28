@@ -1,9 +1,9 @@
 import './style.scss';
 
-const Card = ({ title = '', className = '' } = { title: '', className: '' }) => {
+const Card = ({ title = '', className = '', headerClassName = '' } = { title: '', className: '', headerClassName: '' }) => {
   return `
     <div class="card ${className}">
-      ${ title.length ? `<h5 class="card-header">${title}</h5>` : '' }
+      ${ title.length ? `<h5 class="card-header ${headerClassName}">${title}</h5>` : '' }
       <div class="card-body">
         <ul class="list-group">
           <li class="list-group-item d-flex justify-content-between align-items-center">
