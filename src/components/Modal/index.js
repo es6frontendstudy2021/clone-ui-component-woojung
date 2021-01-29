@@ -3,15 +3,36 @@ import { firebaseInstatnce } from '../../firebase';
 
 const Modal = ({
   id,
-  title,
+  title = '',
+  body = '',
   className = '',
   headerClassName = '',
+  okText = '확인',
   cancleText = '취소',
-  okText = '확인'
+  onOk = () => {},
+  onCancel = () => {},
+  
 } = {}) => {
-  const closeModal = ({ target }) => {
-    target.closest('.modal').querySelector('.btn-close').click();
+  const onOkModal = (event) => {
+    const { target } = event;
+    new Promise(resolve => {
+      onOk(event);
+      resolve();
+    }).then(() => {
+      // target.closest('.modal').querySelector('.btn-close').click();
+    });
   }
+
+  const closeModal = (event) => {
+    const { target } = event;
+    new Promise(resolve => {
+      onCancel(event);
+      resolve();
+    }).then(() => {
+      target.closest('.modal').querySelector('.btn-close').click();
+    });
+  }
+
   return `
     <div class="modal fade ${className}" id="${id}" tabindex="-1">
       <div class="modal-dialog">
@@ -21,7 +42,7 @@ const Modal = ({
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            
+            ${body}
           </div>
           <div class="modal-footer">
             ${Button({
@@ -34,7 +55,7 @@ const Modal = ({
               className: 'confirm__btn',
               color: BUTTON_COLOR.BLUE,
               content: okText,
-              // onClick: onSocialClick,
+              onClick: onOkModal,
             })}
           </div>
         </div>
