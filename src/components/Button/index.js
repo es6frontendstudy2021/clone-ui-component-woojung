@@ -42,13 +42,13 @@ const Button = ({
   borderType = BUTTON_BORDER_TYPE.SOLID,
   onClick,
 } = {}) => {
-  const dataId = randomID();
+  const dataKey = randomID();
 
-  setEventListener({ dataId, onClick });
+  setEventListener({ dataKey, onClick });
   const buttonTheme = getButtonTheme(borderType, color);
   return `
     <button
-      data-id=${dataId}
+      data-key=${dataKey}
       ${id ? `id=${id}` : ''}
       class="btn ${buttonTheme} ${className || ''}"
       type=${type}>
