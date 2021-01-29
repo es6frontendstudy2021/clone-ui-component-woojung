@@ -10,7 +10,7 @@ import Group from './Group';
 const cardTitle = () => `
   <div class="flex-row">
     <span class="card-title">
-      장소
+      그룹
     </span>
     <div class="right">
       ${Button({
@@ -72,7 +72,6 @@ const GroupList = () => {
             places: [],
           };
           databaseService.ref(`groups/${newGroup.id}`).set(newGroup);
-          
         },
         onCancel: ({ target }) => {
           const $modal = target.closest('.modal');

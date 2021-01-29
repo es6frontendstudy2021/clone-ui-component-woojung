@@ -19,7 +19,7 @@ const Modal = ({
       onOk(event);
       resolve();
     }).then(() => {
-      // target.closest('.modal').querySelector('.btn-close').click();
+      target.closest('.modal').querySelector('.btn-close').click();
     });
   }
 
