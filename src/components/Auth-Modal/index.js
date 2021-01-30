@@ -13,20 +13,21 @@ const AuthModal = ({
     const provider = new firebaseInstatnce.auth.GoogleAuthProvider();
 
     console.log(provider);
-
-    // const data = await authService.signInWithPopup(provider);
     setTimeout(() => {
       authService.signInWithPopup(provider);
     }, 500)
-    // console.log(data);
   };
+
+  const onSubmit = (({target}) => {
+    console.log(target);
+  })
 
   return `
     <div class="modal fade" id="${id}" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="modalLabel">${title}</h5>
+            <h5 class="modal-title" id="modalLabel">${ title }</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
@@ -34,13 +35,20 @@ const AuthModal = ({
             <form onSubmit="onSubmit">
               <input class="form-control mb-2" name="email" type="email" placeholder="email" value={email} onChange={onChange} required />
               <input class="form-control mb-2" name="password" type="password" placeholder="password" value={password} onChange={onChange} required />
-               <input type="submit" value=${title} />
+               ${Button({
+                className: 'w-100',
+                color: BUTTON_COLOR.YELLOW,
+                // borderType: 'outline',
+                content: `${newAccount ? '회원가입' : '로그인'}`,
+                onClick: onSubmit,
+              })}
             </form>
-
+              <hr />
           <div>
             ${Button({
-    className: 'header__signin',
+    className: 'w-100',
     color: BUTTON_COLOR.YELLOW,
+    // borderType: 'outline',
     content: '구글',
     onClick: onSocialClick,
   })}

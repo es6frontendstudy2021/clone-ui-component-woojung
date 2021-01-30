@@ -19,11 +19,13 @@ const Header = ({ className = '' } = {}) => {
     <header class=${className}>
       ${AuthModal({
         id: SIGNIN_MODAL_ID,
-        title: '로그인'
+        title: '로그인',
+        newAccount: false
       })}
       ${AuthModal({
         id: SIGNUP_MODAL_ID,
-        title: '회원가입'
+        title: '회원가입',
+        newAccount: true
       })}
       <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
