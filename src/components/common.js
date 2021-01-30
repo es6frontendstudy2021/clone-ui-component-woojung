@@ -12,6 +12,7 @@ export const setEventListener = ({ dataKey, onClick }) => {
 };
 
 export const showModal = ({ target: $target, modalSelector }) => {
+  console.log($target, modalSelector);
   const { dataset } = $target;
   if (dataset.bsToggle && dataset.bsTarget) {
     return;
