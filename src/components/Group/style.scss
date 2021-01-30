@@ -1,0 +1,27 @@
+.group-list {
+  .group-list__title span {
+    margin-bottom: 0;
+  }
+  .add-group-button:focus {
+    box-shadow: none;
+  }
+  .flex-row {
+    align-items: center;
+  }
+}
+
+.group {
+  .group-title:hover {
+    cursor: pointer;
+  }
+  .place-list-container {
+    display: none;
+  }
+  &.active .place-list-container {
+    display: flex;
+  }
+  &.active .place-list-container.place-list-container--hide {
+    display: none;
+  }
+}
+

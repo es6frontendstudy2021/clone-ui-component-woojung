@@ -1,10 +1,14 @@
-export const setEventListener = ({ dataId, onClick }) => {
+export const onRender = (callback) => {
   (async () => {
     await new Promise((resolve) => resolve());
-    document.querySelector(`[data-id="${dataId}"]`).onclick = (event) => {
-      onClick(event);
-    };
+    callback();
   })();
+}
+
+export const setEventListener = ({ dataKey, onClick }) => {
+  onRender(() => {
+    document.querySelector(`[data-key="${dataKey}"]`).onclick = onClick;
+  })
 };
 
 export const showModal = ({ target: $target, modalSelector }) => {
@@ -16,3 +20,8 @@ export const showModal = ({ target: $target, modalSelector }) => {
   dataset.bsTarget = modalSelector;
   $target.click();
 };
+
+export const getUniqueId = () => {
+  return Date.now() + Math.floor(Math.random() * 1000000);
+}
+

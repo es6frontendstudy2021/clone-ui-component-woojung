@@ -25,3 +25,21 @@ header {
     margin: 0 4px;
   }
 }
+
+.content {
+  margin: 0 32px;
+}
+
+.group-list-container {
+  flex: 1 1 300px;
+  margin-left: 12px;
+}
+
+.right {
+  margin-left: auto;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
