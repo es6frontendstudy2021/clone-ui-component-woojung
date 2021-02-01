@@ -22,7 +22,6 @@ const ModalAuth = ({
 
     const myModal = document.getElementById(`${id}`);
 
-    console.log(email, password);
     const emailRegExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
     const emailValid = emailRegExp.test(email);
 
@@ -50,15 +49,12 @@ const ModalAuth = ({
             authForm.password.value = '';
           });
         }
-        console.log(data);
       } catch (error) {
         console.log(error);
         setError(error.message);
       }
 
     } else {
-      console.log(emailValid);
-      console.log(passwordValid);
       alert('이메일 또는 비밀번호 형식이 맞지 않습니다.')
     }
 
@@ -77,7 +73,7 @@ const ModalAuth = ({
             <form class="auth-form-${newAccount ? 'login' : 'signup'}">
               <input class="form-control mb-2" name="email" type="email" placeholder="이메일 주소" value='' required />
               <input class="form-control mb-2" name="password" type="password" placeholder="비밀번호${newAccount ? '(6 ~ 10자 영문, 숫자 조합)' : ''}" value='' minlength="6" maxlength="10" required />
-               ${Button({
+              ${Button({
     className: 'w-100',
     color: BUTTON_COLOR.BLUE,
     content: `${newAccount ? '회원가입' : '로그인'}`,
@@ -90,7 +86,6 @@ const ModalAuth = ({
             ${Button({
     className: 'w-100',
     color: BUTTON_COLOR.BLUE,
-    // borderType: 'outline',
     content: `Google 계정으로 ${newAccount ? '회원가입' : '로그인'} 하기`,
     onClick: onSocialClick,
   })}
