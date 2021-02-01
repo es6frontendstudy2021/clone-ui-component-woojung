@@ -32,18 +32,18 @@ const Header = ({ className = '' } = {}) => {
           <a class="navbar-brand" href="/"></a>
           <div class="d-flex header__right">
             ${Button({
-    className: 'header__signin',
-    color: BUTTON_COLOR.YELLOW,
-    content: '로그인',
-    onClick: onClickLogin,
-  })}
-                      ${Button({
-    className: 'header__signup',
-    color: BUTTON_COLOR.BLUE,
-    content: '회원가입',
-    borderType: 'outline',
-    onClick: onClickSignup,
-  })}
+              className: 'header__signin',
+              color: BUTTON_COLOR.YELLOW,
+              content: '로그인',
+              onClick: onClickLogin,
+             })}
+             ${Button({
+              className: 'header__signup',
+              color: BUTTON_COLOR.BLUE,
+              content: '회원가입',
+              borderType: 'outline',
+              onClick: onClickSignup,
+             })}
           </div>
         </div>
       </nav>
