@@ -13,11 +13,14 @@ const ModalAuth = ({
       authService.signInWithPopup(provider);
     }, 500)
   };
+
   const onAuthValid = ((e) => {
     e.preventDefault();
-    const authForm = document.querySelector('.auth-form')
+    const authForm = newAccount ? document.querySelector('.auth-form-login') : document.querySelector('.auth-form-signup');
     const email = authForm.email.value;
     const password = authForm.password.value;
+
+    const myModal = document.getElementById(`${id}`);
 
     console.log(email, password);
     const emailRegExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
@@ -28,16 +31,20 @@ const ModalAuth = ({
     //  6 ~ 10자 영문, 숫자 조합
 
     if (emailValid && passwordValid) {
-      console.log('성공!!!');
-
       try {
         let data;
         if (newAccount) {
           //회원가입
-          data = authService.createUserWithEmailAndPassword(email, password)
+          data = authService.createUserWithEmailAndPassword(email, password).then(() => {
+            myModal.querySelector('.btn-close').click();
+            alert('회원가입완료');
+          });
         } else {
           //로그인
-          data = authService.signInWithEmailAndPassword(email, password);
+          data = authService.signInWithEmailAndPassword(email, password).then(() => {
+            myModal.querySelector('.btn-close').click();
+            alert('로그인완료');
+          });
         }
         console.log(data);
       } catch (error) {
@@ -48,10 +55,22 @@ const ModalAuth = ({
     } else {
       console.log(emailValid);
       console.log(passwordValid);
-      alert('실패')
-      return false;
+      alert('이메일 또는 비밀번호 형식이 맞지 않습니다.')
     }
+
+    // authForm.email.value = '';
+    // authForm.password.value = '';
   })
+
+  const closeModal = (event) => {
+    const { target } = event;
+    new Promise(resolve => {
+      onCancel(event);
+      resolve();
+    }).then(() => {
+      target.closest('.modal').querySelector('.btn-close').click();
+    });
+  }
 
   return `
     <div class="modal fade" id="${id}" tabindex="-1">
@@ -63,9 +82,9 @@ const ModalAuth = ({
           </div>
           <div class="modal-body">
             
-            <form class="auth-form">
+            <form class="auth-form-${newAccount ? 'login' : 'signup'}">
               <input class="form-control mb-2" name="email" type="email" placeholder="이메일 주소" value='' required />
-              <input class="form-control mb-2" name="password" type="password" placeholder="비밀번호(6 ~ 10자 영문, 숫자 조합)" value='' minlength="6" maxlength="10" required />
+              <input class="form-control mb-2" name="password" type="password" placeholder="비밀번호${newAccount ? '(6 ~ 10자 영문, 숫자 조합)' : ''}" value='' minlength="6" maxlength="10" required />
                ${Button({
     className: 'w-100',
     color: BUTTON_COLOR.BLUE,
