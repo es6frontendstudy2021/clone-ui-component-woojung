@@ -38,12 +38,16 @@ const ModalAuth = ({
           data = authService.createUserWithEmailAndPassword(email, password).then(() => {
             myModal.querySelector('.btn-close').click();
             alert('회원가입완료');
+            authForm.email.value = '';
+            authForm.password.value = '';
           });
         } else {
           //로그인
           data = authService.signInWithEmailAndPassword(email, password).then(() => {
             myModal.querySelector('.btn-close').click();
             alert('로그인완료');
+            authForm.email.value = '';
+            authForm.password.value = '';
           });
         }
         console.log(data);
@@ -58,19 +62,7 @@ const ModalAuth = ({
       alert('이메일 또는 비밀번호 형식이 맞지 않습니다.')
     }
 
-    // authForm.email.value = '';
-    // authForm.password.value = '';
   })
-
-  const closeModal = (event) => {
-    const { target } = event;
-    new Promise(resolve => {
-      onCancel(event);
-      resolve();
-    }).then(() => {
-      target.closest('.modal').querySelector('.btn-close').click();
-    });
-  }
 
   return `
     <div class="modal fade" id="${id}" tabindex="-1">
