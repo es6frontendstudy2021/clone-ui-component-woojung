@@ -74,21 +74,21 @@ const ModalAuth = ({
               <input class="form-control mb-2" name="email" type="email" placeholder="이메일 주소" value='' required />
               <input class="form-control mb-2" name="password" type="password" placeholder="비밀번호${newAccount ? '(6 ~ 10자 영문, 숫자 조합)' : ''}" value='' minlength="6" maxlength="10" required />
               ${Button({
-    className: 'w-100',
-    color: BUTTON_COLOR.BLUE,
-    content: `${newAccount ? '회원가입' : '로그인'}`,
-    type: BUTTON_TYPE.SUBMIT,
-    onClick: onAuthValid,
-  })}
+                className: 'w-100',
+                color: BUTTON_COLOR.BLUE,
+                content: `${newAccount ? '회원가입' : '로그인'}`,
+                type: BUTTON_TYPE.SUBMIT,
+                onClick: onAuthValid,
+              })}
             </form>
               <hr />
           <div>
             ${Button({
-    className: 'w-100',
-    color: BUTTON_COLOR.BLUE,
-    content: `Google 계정으로 ${newAccount ? '회원가입' : '로그인'} 하기`,
-    onClick: onSocialClick,
-  })}
+              className: 'w-100',
+              color: BUTTON_COLOR.BLUE,
+              content: `Google 계정으로 ${newAccount ? '회원가입' : '로그인'} 하기`,
+              onClick: onSocialClick,
+            })}
           </div>
 
           </div>
