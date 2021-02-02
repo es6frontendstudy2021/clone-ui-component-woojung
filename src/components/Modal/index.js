@@ -45,17 +45,17 @@ const Modal = ({
           </div>
           <div class="modal-footer">
             ${Button({
-    className: 'cancle__btn',
-    color: BUTTON_COLOR.GRAY,
-    content: cancleText,
-    onClick: closeModal,
-  })}
+              className: 'cancle__btn',
+              color: BUTTON_COLOR.GRAY,
+              content: cancleText,
+              onClick: closeModal,
+            })}
             ${Button({
-    className: 'confirm__btn',
-    color: BUTTON_COLOR.BLUE,
-    content: okText,
-    onClick: onOkModal,
-  })}
+              className: 'confirm__btn',
+              color: BUTTON_COLOR.BLUE,
+              content: okText,
+              onClick: onOkModal,
+            })}
           </div>
         </div>
       </div>

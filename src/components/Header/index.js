@@ -18,15 +18,15 @@ const Header = ({ className = '' } = {}) => {
   return `
     <header class=${className}>
       ${ModalAuth({
-    id: SIGNIN_MODAL_ID,
-    title: '로그인',
-    newAccount: false
-  })}
+        id: SIGNIN_MODAL_ID,
+        title: '로그인',
+        newAccount: false
+      })}
       ${ModalAuth({
-    id: SIGNUP_MODAL_ID,
-    title: '회원가입',
-    newAccount: true
-  })}
+        id: SIGNUP_MODAL_ID,
+        title: '회원가입',
+        newAccount: true
+      })}
       <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="/"></a>
