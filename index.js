@@ -8,6 +8,4 @@ window.onload = () => {
 
   firebase.initializeApp(config);
   const database = firebase.database();
-
-  console.log(database);
 };
