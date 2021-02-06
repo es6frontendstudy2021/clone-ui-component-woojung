@@ -1,5 +1,4 @@
 import Button, { BUTTON_COLOR } from '../Button';
-import { firebaseInstatnce } from '../../firebase';
 
 const Modal = ({
   id,
@@ -9,9 +8,9 @@ const Modal = ({
   headerClassName = '',
   okText = '확인',
   cancleText = '취소',
-  onOk = () => {},
-  onCancel = () => {},
-  
+  onOk = () => { },
+  onCancel = () => { },
+
 } = {}) => {
   const onOkModal = (event) => {
     const { target } = event;

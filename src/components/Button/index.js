@@ -18,6 +18,7 @@ export const BUTTON_BORDER_TYPE = {
 
 export const BUTTON_TYPE = {
   BUTTON: 'button',
+  SUBMIT: 'submit',
 };
 
 const getButtonTheme = (...args) => {
