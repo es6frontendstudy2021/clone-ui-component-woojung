@@ -52,7 +52,6 @@ const GroupList = (Group) => ({ groups, onAddGroup, onAddPlace }) => {
             }
           });
         },
-      })
       })}
       <ul class="group-list list-group">
         ${ Card({ title: getCardTitle(), className: 'group-list__card', content: groupElements })}
