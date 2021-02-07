@@ -43,3 +43,11 @@ header {
   display: flex;
   flex-direction: row;
 }
+
+.flex-row.space-between {
+  justify-content: space-between;
+}
+
+.form-control {
+  flex: 1 1 300px;
+}

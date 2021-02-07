@@ -4,6 +4,7 @@ import Icon from '../Icon';
 import { showModal } from '../common';
 import { databaseService } from '../../firebase';
 import AddGroupModal from './AddGroupModal';
+import AddPlaceModal from './AddPlaceModal';
 import Card from '../Card';
 
 const toggleFolding = ({ $el }) => {
@@ -35,13 +36,24 @@ const getCardTitle = () => `
   </div>
 `;
 
-const GroupList = (Group) => ({ groups, onAddGroup }) => {
+const GroupList = (Group) => ({ groups, onAddGroup, onAddPlace }) => {
   const validGrouplist = Object.entries(groups).filter(([_id, group]) => group?.id).map(([_id, group]) => group);
   const groupElements = validGrouplist.map((group) => Group({ ...group, onClickTitle: onClickGroupTitle })).join('');
 
   return `
     <div class="group-list">
       ${AddGroupModal({ onOk: onAddGroup })}
+      ${AddPlaceModal({
+        onOk: ({ place }) => { 
+          onAddPlace({
+            place: {
+              groupId: document.querySelector('.list-group-item.active').dataset.id,
+              ...place,
+            }
+          });
+        },
+      })
+      })}
       <ul class="group-list list-group">
         ${ Card({ title: getCardTitle(), className: 'group-list__card', content: groupElements })}
       </ul>
