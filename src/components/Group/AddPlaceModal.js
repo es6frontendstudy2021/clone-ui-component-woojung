@@ -1,9 +1,9 @@
 import Button from '../Button';
-import Map from '../Map';
+import Map, { moveMap } from '../Map';
 import Modal from '../Modal';
 import { getUniqueId, onRender } from '../common';
 
-const MAP_ID = 'place-modal';
+const mapId = 'add-place-modal';
 
 const AddPlaceModal = ({ onOk, onCancel }) => {
   const place = {};
@@ -13,10 +13,8 @@ const AddPlaceModal = ({ onOk, onCancel }) => {
       address: document.querySelector('.place-form__name').value,
       onSearch: ({ roadAddress, x, y }) => {
         place.marker?.setMap(null);
-        const map = globalThis.maps[MAP_ID];
-        const position = new naver.maps.LatLng(y, x);
-
-        map.panTo(position);
+        const map = globalThis.maps[mapId];
+        moveMap({ map, x, y });
         place.marker = new naver.maps.Marker({ position, map, zoom: 15 });
         place.x = Number(x);
         place.y = Number(y);
@@ -50,7 +48,7 @@ const AddPlaceModal = ({ onOk, onCancel }) => {
             장소 이름을 입력해주세요.
           </div>
         </div>
-        ${Map({ id: MAP_ID, width: '460px', height: '40vh', map })}
+        ${Map({ id: mapId, width: '460px', height: '40vh' })}
       </form>
     `,
     onOk: () => {
