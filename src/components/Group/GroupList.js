@@ -2,7 +2,7 @@ import Button, { BUTTON_COLOR } from '../Button';
 import Icon from '../Icon';
 import { showModal } from '../common';
 import AddGroupModal from './AddGroupModal';
-import AddPlaceModal from './AddPlaceModal';
+import PlaceModal from './PlaceModal';
 import Card from '../Card';
 
 const GroupList = (Group) => ({ groups, onAddGroup, onSelectGroup, onAddPlace, onSelectPlace }) => {
@@ -24,14 +24,17 @@ const GroupList = (Group) => ({ groups, onAddGroup, onSelectGroup, onAddPlace, o
   return `
     <div class="group-list">
       ${AddGroupModal({ onOk: onAddGroup })}
-      ${AddPlaceModal({
-        onOk: ({ place }) => { 
-          onAddPlace({
+      ${PlaceModal({
+        title: '장소 추가',
+        className: 'group-list__add-place-modal',
+        onOk: async ({ place }) => { 
+          await onAddPlace({
             place: {
-              groupId: document.querySelector('.list-group-item.group--is-selected').dataset.id,
+              groupId: Number(document.querySelector('.group--is-selected').dataset.id),
               ...place,
             }
           });
+          alert('장소를 추가했습니다');
         },
       })}
       ${ Card({ title: getCardTitle(), className: 'group-list__card', content: groupElements })}

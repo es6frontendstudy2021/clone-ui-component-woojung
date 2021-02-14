@@ -52,7 +52,6 @@ const Group = ({ group, onClickTitle, onSelectPlace }) => {
 
 const togglePlaceSelected = ({ $el }) => {
   const placeElements = $el.closest('.group').querySelectorAll('.place');
-  console.log(placeElements);
   for (const $place of placeElements) {
     $place.classList[$place === $el ? 'add' : 'remove']('place--is-selected');
   }

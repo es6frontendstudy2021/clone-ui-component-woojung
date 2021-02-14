@@ -20,21 +20,20 @@ const moveMapToGroup = ({ group = {}}) => {
   if (!placesLength ) {
     return;
   }
+  if (placesLength === 1) {
+    moveMapToPlace({ place: places[0]});
+    return;
+  }
+  
   const map = getMap();
-
-  const { xSum, xMin, xMax, ySum, yMin, yMax } = places.reduce(({ xSum, xMin, xMax, ySum, yMin, yMax}, currentValue) => {
-    const x = Number(currentValue.x);
-    const y = Number(currentValue.y);
-
-    return ({
-      xSum: xSum + x,
-      xMin: xMin < x ? xMin : x,
-      xMax: xMax > x ? xMax : x,
-      ySum: ySum + y,
-      yMin: yMin < y ? xMin : y,
-      yMax: yMax > y ? xMax : y,
-    });
-  }, {xSum: 0, xMin: 180, xMax: -180, ySum: 0, yMin: 180, yMax: -180 });
+  const { xSum, xMin, xMax, ySum, yMin, yMax } = places.reduce(({ xSum, xMin, xMax, ySum, yMin, yMax}, { x, y }) => ({
+    xSum: xSum + x,
+    xMin: xMin < x ? xMin : x,
+    xMax: xMax > x ? xMax : x,
+    ySum: ySum + y,
+    yMin: yMin < y ? xMin : y,
+    yMax: yMax > y ? xMax : y,
+  }), {xSum: 0, xMin: 180, xMax: -180, ySum: 0, yMin: 180, yMax: -180 });
   const xDistance = xMax - xMin, yDistance = yMax - yMin;
   if ( !xDistance || !yDistance) {
     return;
@@ -60,9 +59,9 @@ window.onload = () => {
   const $root = document.querySelector('#root');
 
   databaseService.ref('groups').on('value', (response) => {
-    const groups = response.val();
+    const groups = response.val() || [];
     databaseService.ref('places').on('value', (response) => {
-      const places = response.val();
+      const places = response.val() || [];
       for (const placeId of Object.keys(places)) {
         const place = places[parseInt(placeId)];
         const { x, y, groupId } = place;

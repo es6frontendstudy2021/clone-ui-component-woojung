@@ -1,7 +1,7 @@
 import { getUniqueId, setEventListener } from '../common';
 import './style.scss';
 
-const Place = ({ place: { id, address, groupId, x, y }, onClick }) => {
+const Place = ({ place: { id, name, address, groupId, x, y }, onClick }) => {
   const dataKey = getUniqueId();
   setEventListener({
     dataKey,
@@ -11,7 +11,7 @@ const Place = ({ place: { id, address, groupId, x, y }, onClick }) => {
   })
   return `
     <div class="place" data-key="${dataKey}" data-id="${id}">
-      ${address}
+      ${name}
     </div>
   `;
 };
