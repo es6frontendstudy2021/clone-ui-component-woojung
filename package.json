@@ -1,7 +1,7 @@
 {
-  "name": "WouldYou",
+  "name": "clone-ui-component-woojung",
   "version": "1.0.0",
-  "description": "Would you like to visit here?",
+  "description": "clone antd component",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

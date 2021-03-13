@@ -1,12 +1,8 @@
-# WouldYou
-
-Would you like to visit here?
+# Clone UI Component
 
 ## Technical Stacks
 
 - ES6+, webpack5
-- naver map
-- firebase
 
 ## Getting Started
 
