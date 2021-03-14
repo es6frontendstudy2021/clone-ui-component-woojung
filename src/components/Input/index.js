@@ -1,5 +1,5 @@
 import { getUniqueId } from "../../../lib/id";
-import { getComponentById, onRender, setComponentAttributes, useState } from "../../../lib/react";
+import { getElementByReactId, onRender, setComponentAttributes } from "../../../lib/react";
 
 let isFocused = false;
 
@@ -15,7 +15,7 @@ const Input = ({ value, onChange }) => {
 
   onRender(() => {
     if (isFocused) {
-      const input = getComponentById(reactId)
+      const input = getElementByReactId(reactId)
       input.focus();
       input.setSelectionRange(input.value.length, input.value.length);
     }
