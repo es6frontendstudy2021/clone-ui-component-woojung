@@ -1,0 +1,17 @@
+@keyframes loadingCircle {
+  100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); }
+}
+@-webkit-keyframes loadingCircle {
+  100% { -webkit-transform: rotate(360deg); }
+} 
+@-moz-keyframes loadingCircle {
+  100% { -moz-transform: rotate(360deg); }
+}
+
+.anticon {
+  display: inline-block;
+  vertical-align: -.125em;
+}
+.anticon svg {
+  animation: loadingCircle 1s linear infinite;
+}

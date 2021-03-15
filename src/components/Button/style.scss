@@ -26,6 +26,15 @@
     background: $white;
     color: $danger;
   }
+  &.ant-btn-loading {
+    position: relative;
+    pointer-events: none;
+    opacity: 0.65;
+  }
+  &.ant-btn-icon-only {
+    padding: 2.4px 0;
+    width: 32px;
+  }
 }
 
 .ant-btn:hover {

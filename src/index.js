@@ -4,6 +4,7 @@ import Button from './components/Button';
 import Typography from './components/Typography';
 import Input from './components/Input';
 import './style.scss';
+import Loading from './components/Loading';
 
 const { Text } = Typography;
 
@@ -19,6 +20,7 @@ const App = () => {
     children: `
       ${Card({
         children: `
+          ${Button({ loading: true })}
           <ul>
             <li>${Button({ children: 'Primary Button', type: 'primary' })}</li>
             <li>${Button({ children: 'Default Button', type: 'default' })}</li>
