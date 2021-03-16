@@ -35,6 +35,26 @@
     padding: 2.4px 0;
     width: 32px;
   }
+  &.ant-btn-background-ghost {
+    background: 0 0;
+  }
+  &.ant-btn-lg {
+    padding: 6.4px 15px;
+    font-size: 16px;
+  };
+  
+  &.ant-btn-sm {
+    padding: 0 7px;
+    font-size: 14px;
+  };
+  
+  &.ant-btn-circle {
+    border-radius: 50%;
+  }
+  
+  &.ant-btn-round {
+    border-radius: 32px;
+  }
 }
 
 .ant-btn:hover {
@@ -54,6 +74,10 @@
     background-color: $danger;
     color: $white;
   }
+  &.ant-btn-background-ghost {
+    border-color: $primary;
+    color: $primary;
+  }
 }
 .ant-btn-primary:hover {
   background-color: $primary-week;
@@ -61,6 +85,11 @@
   &.ant-btn-dangerous {
     background-color: $danger-week;
     color: $white;
+  }
+  &.ant-btn-background-ghost {
+    background: 0 0;
+    border-color: $primary-week;
+    color: $primary-week;
   }
 }
 
@@ -106,24 +135,6 @@
     border-color: rgba($color: $white, $alpha: 0);
     color: $danger-week;
   }
-}
-
-.ant-btn-lg {
-  padding: 6.4 15px;
-  font-size: 16px;
-};
-
-.ant-btn-sm {
-  padding: 0 7px;
-  font-size: 14px;
-};
-
-.ant-btn-circle {
-  border-radius: 50%;
-}
-
-.ant-btn-round {
-  border-radius: 32px;
 }
 
 .ant-btn[disabled] {
