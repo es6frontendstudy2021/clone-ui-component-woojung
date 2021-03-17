@@ -43,6 +43,7 @@ const Button = ({
   danger = false,
   ghost = false,
   children,
+  className = '',
   block = false,
   href = '',
   htmlType = 'button',
@@ -61,7 +62,7 @@ const Button = ({
 
   return `
     <button
-      class="ant-btn ${getClass({ type, shape, size, loading, danger, ghost, children })}"
+      class="ant-btn ${className} ${getClass({ type, shape, size, loading, danger, ghost, children })}"
       data-reactid="${reactId}"
       ${disabled ? 'disabled' : ''}>
       ${loading ? `<span class="ant-btn-loading-icon">${Loading()}</span>` : ''}

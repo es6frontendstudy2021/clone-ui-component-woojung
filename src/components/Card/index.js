@@ -1,10 +1,12 @@
 import './style.scss';
 
-const Card = ({ title, children }) => {
+const Card = ({ title = '', className = '', children = '' }) => {
   return `
-    <div class="ant-card">
+    <div class="ant-card ${className}">
       <div class="ant-card-head">
-        ${title}
+        <div class="ant-card-head-wrapper">
+          ${title}
+        </div>
       </div>
       <div class="ant-card-body">
         ${children}
