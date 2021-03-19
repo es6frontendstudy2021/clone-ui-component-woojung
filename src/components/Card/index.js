@@ -1,8 +1,8 @@
 import './style.scss';
 
-const Card = ({ title = '', className = '', children = '' }) => {
+const Card = ({ id, title = '', className = '', children = '' }) => {
   return `
-    <div class="ant-card ${className}">
+    <div class="ant-card ${className}" ${id ? `id="${id}"` : ''}>
       <div class="ant-card-head">
         <div class="ant-card-head-wrapper">
           ${title}

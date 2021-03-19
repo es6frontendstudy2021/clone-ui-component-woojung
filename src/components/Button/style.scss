@@ -55,6 +55,12 @@
   &.ant-btn-round {
     border-radius: 32px;
   }
+  &.ant-btn-block {
+    width: 100%;
+  }
+  & > .anticon+span {
+    margin-left: 8px;
+  }
 }
 
 .ant-btn:hover {

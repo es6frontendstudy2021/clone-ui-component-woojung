@@ -1,5 +1,5 @@
 import { getUniqueId } from "../../../lib/id";
-import { setComponentAttributes } from "../../../lib/react";
+import { onRender, setComponentAttributes } from "../../../lib/react";
 import Loading from "../Loading";
 import './style.scss';
 
@@ -22,7 +22,7 @@ const SHAPE_CLASS_MAP = {
   round: 'ant-btn-round'
 }
 
-const getClass = ({ type, shape, size, loading, danger, ghost, children }) => {
+const getClass = ({ type, shape, size, loading, danger, ghost, block, children }) => {
   const classList = [];
   classList.push(TYPE_CLASS_MAP[type]);
   classList.push(SHAPE_CLASS_MAP[shape]);
@@ -30,6 +30,7 @@ const getClass = ({ type, shape, size, loading, danger, ghost, children }) => {
   if (loading) classList.push('ant-btn-loading');
   if (danger) classList.push('ant-btn-dangerous');
   if (ghost) classList.push('ant-btn-background-ghost');
+  if (block) classList.push('ant-btn-block');
   if (!children) classList.push('ant-btn-icon-only');
   return classList.join(' ');
 };
@@ -55,20 +56,25 @@ const Button = ({
 
   disabled || setComponentAttributes({
     reactId,
-    attributes: {onclick: () => onClick()},
+    attributes: {onclick: event => {
+      if(href) location.href = href;
+      onClick(event);
+    }},
   });
 
-  
-
-  return `
+  const button = `
     <button
-      class="ant-btn ${className} ${getClass({ type, shape, size, loading, danger, ghost, children })}"
+      class="ant-btn ${className} ${getClass({ type, shape, size, loading, danger, ghost, block, children })}"
+      type="${htmlType}"
       data-reactid="${reactId}"
       ${disabled ? 'disabled' : ''}>
       ${loading ? `<span class="ant-btn-loading-icon">${Loading()}</span>` : ''}
+      ${icon || ''}
       ${children ? `<span>${children}</span>` : ''}
     </button>
   `;
+  if (!href) return button;
+  return `<a href="${href}" target="${target}">${button}</a>`
 };
 
 export default Button;
