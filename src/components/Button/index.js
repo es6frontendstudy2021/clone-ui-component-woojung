@@ -1,5 +1,6 @@
 import { getUniqueId } from "../../../lib/id";
-import { setComponentAttributes } from "../../../lib/react";
+import { onRender, setComponentAttributes } from "../../../lib/react";
+import Loading from "../Loading";
 import './style.scss';
 
 const TYPE_CLASS_MAP = {
@@ -16,44 +17,64 @@ const SIZE_CLASS_MAP = {
   small: 'ant-btn-sm' ,
 };
 
-const getClass = ({ type, size, danger }) => {
+const SHAPE_CLASS_MAP = {
+  circle: 'ant-btn-circle',
+  round: 'ant-btn-round'
+}
+
+const getClass = ({ type, shape, size, loading, danger, ghost, block, children }) => {
   const classList = [];
   classList.push(TYPE_CLASS_MAP[type]);
+  classList.push(SHAPE_CLASS_MAP[shape]);
   classList.push(SIZE_CLASS_MAP[size]);
+  if (loading) classList.push('ant-btn-loading');
   if (danger) classList.push('ant-btn-dangerous');
+  if (ghost) classList.push('ant-btn-background-ghost');
+  if (block) classList.push('ant-btn-block');
+  if (!children) classList.push('ant-btn-icon-only');
   return classList.join(' ');
 };
 
 const Button = ({
-  children,
-  block = false,
-  danger = false,
+  type = 'primary',
+  shape,
+  size = 'middle',
+  loading = false,
   disabled = false,
+  danger = false,
   ghost = false,
+  children,
+  className = '',
+  block = false,
   href = '',
   htmlType = 'button',
   icon = null,
-  loading = false,
-  shpe,
-  size = 'middle',
   target = '',
-  type = 'primary',
   onClick = event => { console.log(event) },
 }) => {
   const reactId = getUniqueId();
 
-  setComponentAttributes({
+  disabled || setComponentAttributes({
     reactId,
-    attributes: {onclick: () => onClick()},
+    attributes: {onclick: event => {
+      if(href) location.href = href;
+      onClick(event);
+    }},
   });
 
-  
-
-  return `
-    <button class="ant-btn ${getClass({ type, size, danger })}" data-reactid="${reactId}">
-      <span>${children}</span>
+  const button = `
+    <button
+      class="ant-btn ${className} ${getClass({ type, shape, size, loading, danger, ghost, block, children })}"
+      type="${htmlType}"
+      data-reactid="${reactId}"
+      ${disabled ? 'disabled' : ''}>
+      ${loading ? `<span class="ant-btn-loading-icon">${Loading()}</span>` : ''}
+      ${icon || ''}
+      ${children ? `<span>${children}</span>` : ''}
     </button>
   `;
+  if (!href) return button;
+  return `<a href="${href}" target="${target}">${button}</a>`
 };
 
 export default Button;

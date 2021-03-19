@@ -20,6 +20,47 @@
   -moz-transition: all 0.3s cubic-bezier(.645,.045,.355,1); /* Firefox 4 */
   -o-transition: all 0.3s cubic-bezier(.645,.045,.355,1); /* Opera */
   -ms-transition: all 0.3s cubic-bezier(.645,.045,.355,1); /* Explorer 10 */
+
+  &.ant-btn-dangerous {
+    border-color: $danger;
+    background: $white;
+    color: $danger;
+  }
+  &.ant-btn-loading {
+    position: relative;
+    pointer-events: none;
+    opacity: 0.65;
+  }
+  &.ant-btn-icon-only {
+    padding: 2.4px 0;
+    width: 32px;
+  }
+  &.ant-btn-background-ghost {
+    background: 0 0;
+  }
+  &.ant-btn-lg {
+    padding: 6.4px 15px;
+    font-size: 16px;
+  };
+  
+  &.ant-btn-sm {
+    padding: 0 7px;
+    font-size: 14px;
+  };
+  
+  &.ant-btn-circle {
+    border-radius: 50%;
+  }
+  
+  &.ant-btn-round {
+    border-radius: 32px;
+  }
+  &.ant-btn-block {
+    width: 100%;
+  }
+  & > .anticon+span {
+    margin-left: 8px;
+  }
 }
 
 .ant-btn:hover {
@@ -32,17 +73,16 @@
   }
 }
 
-.ant-btn-dangerous {
-  color: $danger;
-  background: $white;
-  border-color: $danger;
-}
-
 .ant-btn-primary {
   background-color: $primary;
   color: $white;
   &.ant-btn-dangerous {
     background-color: $danger;
+    color: $white;
+  }
+  &.ant-btn-background-ghost {
+    border-color: $primary;
+    color: $primary;
   }
 }
 .ant-btn-primary:hover {
@@ -51,6 +91,11 @@
   &.ant-btn-dangerous {
     background-color: $danger-week;
     color: $white;
+  }
+  &.ant-btn-background-ghost {
+    background: 0 0;
+    border-color: $primary-week;
+    color: $primary-week;
   }
 }
 
@@ -68,6 +113,9 @@
 
 .ant-btn-text {
   border-color: rgba($color: $white, $alpha: 0);
+  &.ant-btn-dangerous {
+    border-color: rgba($color: $white, $alpha: 0);
+  }
 }
 .ant-btn-text:hover {
   border-color: rgba($color: $white, $alpha: 0);
@@ -82,6 +130,7 @@
   border-color: rgba($color: $white, $alpha: 0);
   color: $primary;
   &.ant-btn-dangerous {
+    border-color: rgba($color: $white, $alpha: 0);
     color: $danger;
   }
 }
@@ -94,12 +143,24 @@
   }
 }
 
-.ant-btn-lg {
-  padding: 6.4 15px;
-  font-size: 16px;
-};
+.ant-btn[disabled] {
+  @include disabled;
+}
 
-.ant-btn-sm {
-  padding: 0 7px;
-  font-size: 14px;
-};
+.ant-btn-text[disabled], .ant-btn-link[disabled] {
+  background-color: $white;
+  border-color: rgba($color: $white, $alpha: 0);
+}
+
+.buttons-gallary {
+  .ant-card-body > .ant-row {
+    margin: 10px 0;
+    & > label {
+      display: inline-block;
+      width: 70px;
+    }
+    &:last-child {
+      text-align: center;
+    }
+  }
+}
