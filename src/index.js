@@ -1,17 +1,8 @@
-import React, { ReactDOM, useState, useEffect } from '../lib/react';
-import Card from './components/Card';
-import Button from './components/Button';
-import Typography from './components/Typography';
-import Input from './components/Input';
-import './style.scss';
-import Loading from './components/Loading';
-import Row from './components/Row';
+import React, { ReactDOM } from '../lib/react';
 import ButtonGallary from './components/Button/gallary';
-
-const { Text } = Typography;
+import './style.scss';
 
 const App = () => {
-
   return ButtonGallary();
 };
 
