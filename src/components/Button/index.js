@@ -1,7 +1,6 @@
 import { getUniqueId } from "../../../lib/id";
-import { onRender, setComponentAttributes } from "../../../lib/react";
+import { setComponentAttributes } from "../../../lib/react";
 import { LoadingOutlined } from "../../icons";
-import Loading from "../Loading";
 import Spin from "../Spin";
 import './style.scss';
 
