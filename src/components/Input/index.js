@@ -1,41 +1,83 @@
 import { getUniqueId } from "../../../lib/id";
 import { getElementByReactId, onRender, setComponentAttributes } from "../../../lib/react";
 
+
+
 let isFocused = false;
 
-const Input = ({ value, onChange }) => {
-  if (typeof value !== 'undefined' && typeof value !== 'string' && typeof value !== 'number') {
-    throw new Error('value must be string type');
-  }
-  if (typeof onChange !== 'undefined' && typeof onChange !== 'function') {
-    throw new Error('onChange must be string type');
-  }
+const SIZE_CLASS_MAP = {
+  large: 'ant-input-lg' ,
+  middle: '',
+  small: 'ant-input-sm' ,
+};
 
+const getClass = ({
+  size
+}) => {
+  const classList = [];
+  classList.push(SIZE_CLASS_MAP[size]);
+
+  return classList.join(' ');
+}
+
+const Input = ({
+  type = 'text',
+  size = 'middle',
+  disabled = true,
+  bordered = true,
+  placeholder = 'placeholder',
+  value = '',
+  // onChange = event => { console.log(event) },
+}) => {
   const reactId = getUniqueId();
 
-  onRender(() => {
-    if (isFocused) {
-      const input = getElementByReactId(reactId)
-      input.focus();
-      input.setSelectionRange(input.value.length, input.value.length);
-    }
-  });
+  // disabled || setComponentAttributes({
+  //   reactId,
+  //   attributes: {oninput: event => {
+  //     console.log(event);
+  //   }}
+  // });
+
+  // if (typeof value !== 'undefined' && typeof value !== 'string' && typeof value !== 'number') {
+  //   throw new Error('value must be string type');
+  // }
+  // if (typeof onChange !== 'undefined' && typeof onChange !== 'function') {
+  //   throw new Error('onChange must be string type');
+  // }
+
+
+  // onRender(() => {
+  //   if (isFocused) {
+  //     const input = getElementByReactId(reactId)
+  //     input.focus();
+  //     input.setSelectionRange(input.value.length, input.value.length);
+  //   }
+  // });
 
   setComponentAttributes({
     reactId,
-    attributes: { onkeyup: ({ target, key }) => {
-      if (value === undefined && onChange === undefined) {
-        return;
-      }
-      if (onChange === undefined) {
-        target.value = value;
-        return;
-      }
-      onChange(target.value);
-      isFocused = true;
-    }},
+    attributes: {
+      // onkeyup: ({ target, key }) => {
+      //   if (value === undefined && onChange === undefined) {
+      //     return;
+      //   }
+      //   if (onChange === undefined) {
+      //     target.value = value;
+      //     return;
+      //   }
+      //   onChange(target.value);
+      //   isFocused = true;
+      // }
+    },
   });
-  return `<input data-reactid="${reactId}" value="${value}" />`;
+  return `<input 
+    data-reactid="${reactId}" 
+    class="${getClass({ type, size, bordered})}"
+    type="${type}"
+    ${disabled ? 'disabled' : ''}
+    placeholder="${placeholder}"
+    value="${value}" />
+  `;
 };
 
 export default Input;
