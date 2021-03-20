@@ -58,8 +58,11 @@
   &.ant-btn-block {
     width: 100%;
   }
-  & > .anticon+span {
+  & > .ant-spin+span {
     margin-left: 8px;
+  }
+  .ant-spin {
+    display: inline-block;
   }
 }
 
@@ -150,17 +153,4 @@
 .ant-btn-text[disabled], .ant-btn-link[disabled] {
   background-color: $white;
   border-color: rgba($color: $white, $alpha: 0);
-}
-
-.buttons-gallary {
-  .ant-card-body > .ant-row {
-    margin: 10px 0;
-    & > label {
-      display: inline-block;
-      width: 70px;
-    }
-    &:last-child {
-      text-align: center;
-    }
-  }
 }

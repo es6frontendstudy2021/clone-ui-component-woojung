@@ -1,3 +1,17 @@
 li {
   margin: 10px;
 }
+
+.buttons-gallary, .cards-gallary {
+  .ant-card-body > .ant-row {
+    margin: 10px 0;
+    & > label {
+      display: inline-block;
+      width: 70px;
+    }
+  }
+}
+
+.result {
+  text-align: center;
+}

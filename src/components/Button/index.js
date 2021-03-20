@@ -1,6 +1,8 @@
 import { getUniqueId } from "../../../lib/id";
 import { onRender, setComponentAttributes } from "../../../lib/react";
+import { LoadingOutlined } from "../../icons";
 import Loading from "../Loading";
+import Spin from "../Spin";
 import './style.scss';
 
 const TYPE_CLASS_MAP = {
@@ -68,7 +70,7 @@ const Button = ({
       type="${htmlType}"
       data-reactid="${reactId}"
       ${disabled ? 'disabled' : ''}>
-      ${loading ? `<span class="ant-btn-loading-icon">${Loading()}</span>` : ''}
+      ${loading ? `${Spin({ indicator: LoadingOutlined })}` : ''}
       ${icon || ''}
       ${children ? `<span>${children}</span>` : ''}
     </button>
