@@ -1,4 +1,4 @@
-import { LoadingOutlined } from "../../icons";
+import { SpinDot } from "../../icons";
 import './style.scss';
 
 const getClass = ({ spinning }) => {
@@ -7,10 +7,10 @@ const getClass = ({ spinning }) => {
   return classList.join();
 };
 
-const Spin = ({ indicator = LoadingOutlined, spinning = true }) => {
+const Spin = ({ indicator, spinning = true }) => {
   return `
     <div class="ant-spin ${getClass({ spinning })}">
-      ${indicator}
+      ${indicator || SpinDot}
     </div>
   `;
 };

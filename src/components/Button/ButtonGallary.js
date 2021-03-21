@@ -16,7 +16,7 @@ const buttonPropsInfo = {
   block: [false, true],
   href: [null, '#buttons-gallary'],
   htmlType: ['button', 'submit'],
-  icon: [null, `${Spin({ spinning: true })}`],
+  icon: [null, `${Spin({ spinning: false })}`],
   target: [null, `_blank`, `_self`, `_parent`, `_top`],
 };
 
