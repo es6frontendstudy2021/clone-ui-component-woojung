@@ -6,9 +6,9 @@ import './style.scss';
 let isFocused = false;
 
 const SIZE_CLASS_MAP = {
-  large: 'ant-input-lg' ,
+  large: 'ant-input-lg',
   middle: '',
-  small: 'ant-input-sm' ,
+  small: 'ant-input-sm',
 };
 
 const getClass = ({
@@ -73,7 +73,7 @@ const Input = ({
   });
   return `<input 
     data-reactid="${reactId}" 
-    class="ant-input ${getClass({ size, borderless})}"
+    class="ant-input ${getClass({ size, borderless })}"
     type="${type}"
     ${disabled ? 'disabled' : ''}
     placeholder="${placeholder}"
