@@ -8,11 +8,25 @@
   100% { -moz-transform: rotate(360deg); }
 }
 
+@keyframes spinningDot {
+  100% { opacity: 0.5; opacity: 0.5; }
+}
+@-webkit-keyframes spinningDot {
+  100% { opacity: 0.5; }
+} 
+@-moz-keyframes spinningDot {
+  100% { opacity: 0.5; }
+}
+
 .anticon {
   display: inline-block;
   vertical-align: -.125em;
 }
 
-.anticon svg {
+.ant-spin-spinning > * {
   animation: spinning 1s linear infinite;
+}
+
+.ant-spin-spinning .ant-spin-dot-item {
+  animation: spinningDot 1s infinite alternate;
 }
