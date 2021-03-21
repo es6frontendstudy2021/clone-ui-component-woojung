@@ -1,6 +1,6 @@
 import { getUniqueId } from "../../../lib/id";
 import { getElementByReactId, onRender, setComponentAttributes } from "../../../lib/react";
-
+import './style.scss';
 
 
 let isFocused = false;
@@ -12,10 +12,11 @@ const SIZE_CLASS_MAP = {
 };
 
 const getClass = ({
-  size
+  size, borderless
 }) => {
   const classList = [];
   classList.push(SIZE_CLASS_MAP[size]);
+  if (borderless) classList.push('ant-input-borderless');
 
   return classList.join(' ');
 }
@@ -24,7 +25,7 @@ const Input = ({
   type = 'text',
   size = 'middle',
   disabled = true,
-  bordered = true,
+  borderless = false,
   placeholder = 'placeholder',
   value = '',
   // onChange = event => { console.log(event) },
@@ -72,7 +73,7 @@ const Input = ({
   });
   return `<input 
     data-reactid="${reactId}" 
-    class="${getClass({ type, size, bordered})}"
+    class="ant-input ${getClass({ size, borderless})}"
     type="${type}"
     ${disabled ? 'disabled' : ''}
     placeholder="${placeholder}"

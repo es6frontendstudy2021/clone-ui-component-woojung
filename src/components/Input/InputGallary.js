@@ -6,11 +6,11 @@ import Row from "../Row";
 
 const inputPropsInfo = {
   type: ['text', 'password', 'number'],
-  size: ['small', 'middle', 'large'],
+  size: ['middle', 'small', 'large'],
   disabled: [false, true],
-  bordered: [false, true],
+  borderless: [false, true],
   placeholder: ['placeholder', ''],
-  value: ['value', ''],
+  value: ['', 'value'],
 };
 
 const InputGallary = () => {
