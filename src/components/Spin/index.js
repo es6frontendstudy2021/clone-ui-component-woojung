@@ -7,10 +7,10 @@ const getClass = ({ spinning }) => {
   return classList.join();
 };
 
-const Spin = ({ indicator = SpinDot, spinning = true }) => {
+const Spin = ({ indicator, spinning = true }) => {
   return `
     <div class="ant-spin ${getClass({ spinning })}">
-      ${indicator}
+      ${indicator || SpinDot}
     </div>
   `;
 };
