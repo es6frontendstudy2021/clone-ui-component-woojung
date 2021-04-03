@@ -18,7 +18,7 @@ const CardGallary = () => {
       title: 'Card',
       children: `
         ${Gallary({ values: cardProps, onChange: setCardProps, info: cardPropsInfo })}
-        ${Row({ children: Card({ ...cardProps, children: 'Result' })})}
+        ${Row({ className: 'result', children: Card({ ...cardProps, children: 'Result' })})}
       `,
     })}
   `;
