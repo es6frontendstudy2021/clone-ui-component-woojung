@@ -14,7 +14,7 @@ const CardGallary = () => {
 
   return `
     ${Card({
-      className: 'cards-gallary',
+      className: 'cards-gallary gallary',
       title: 'Card',
       children: `
         ${Gallary({ values: cardProps, onChange: setCardProps, info: cardPropsInfo })}

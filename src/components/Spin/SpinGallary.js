@@ -12,7 +12,7 @@ const SpinGallary = () => {
   const [spinProps, setSpinProps] = useGallary('spinProps', spinPropsInfo);
   return `
     ${Card({
-      className: 'spins-gallary',
+      className: 'spins-gallary gallary',
       title: 'Spin',
       children: `
         ${Gallary({ values: spinProps, onChange: setSpinProps, info: spinPropsInfo })}

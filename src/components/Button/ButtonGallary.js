@@ -25,7 +25,7 @@ const ButtonGallary = () => {
 
   return `
     ${Card({
-      className: 'buttons-gallary',
+      className: 'buttons-gallary gallary',
       title: 'Button',
       children: `
         ${Gallary({ values: buttonProps, onChange: setButtonProps, info: buttonPropsInfo })}

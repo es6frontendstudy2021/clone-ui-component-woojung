@@ -5,16 +5,24 @@ li {
   margin: 10px;
 }
 
-.buttons-gallary, .cards-gallary, .inputs-gallary {
+.gallary {
   .ant-card-body > .ant-row {
     margin: 10px 0;
+    align-items: center;
     & > label {
       display: inline-block;
-      width: 70px;
+      width: 100px;
+    }
+    & > button {
+      margin-right: 8px;
     }
   }
 }
 
 .result {
-  text-align: center;
+  justify-content: center;
+}
+
+.gallary {
+  width: 100%;
 }
