@@ -18,7 +18,7 @@ const InputGallary = () => {
 
   return `
   ${Card({
-    className: 'inputs-gallary',
+    className: 'inputs-gallary gallary',
     title: 'Input',
     children: `
       ${Gallary({ values: inputProps, onChange: setInputProps, info: inputPropsInfo })}

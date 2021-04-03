@@ -71,7 +71,7 @@ const Button = ({
       ${disabled ? 'disabled' : ''}>
       ${loading ? `${Spin({ indicator: LoadingOutlined })}` : ''}
       ${icon || ''}
-      ${children ? `<span>${children}</span>` : ''}
+      ${`<span>${children || ''}</span>`}
     </button>
   `;
   if (!href) return button;
