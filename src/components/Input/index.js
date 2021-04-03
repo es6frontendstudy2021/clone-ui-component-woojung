@@ -79,7 +79,7 @@ Input.Password = () => {
     $input.addEventListener('focus', () => {
       $password.classList.add('ant-input-password-focused');
     });
-    $input.addEventListener('focusout', () => {
+    $input.addEventListener('blur', () => {
       $password.classList.remove('ant-input-password-focused');
     });
 
